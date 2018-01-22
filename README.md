@@ -23,14 +23,13 @@ The Bottom navigation looks lovely. That's probably the reason why you're here. 
 
 ![behind navigation bar](.github/behind-nav-bar.gif)
 
-
-- [Install](#install)
-- [But how? (Usage)](#but-how)
-- [Configuration](#configuration)
-- [Behind the Navigation Bar](#behind-the-navigation-bar)
-- [Usage for react-navigation](#usage-for-react-navigation)
-- [Roadmap](#roadmap)
-- [LICENSE](#license)
+* [Install](#install)
+* [But how? (Usage)](#but-how)
+* [Configuration](#configuration)
+* [Behind the Navigation Bar](#behind-the-navigation-bar)
+* [Usage for react-navigation](#usage-for-react-navigation)
+* [Roadmap](#roadmap)
+* [LICENSE](#license)
 
 ## Install
 
@@ -42,7 +41,6 @@ $ npm install react-native-material-bottom-navigation --save
 $ yarn add react-native-material-bottom-navigation
 ```
 
-
 ## But how?
 
 This is an example for a Bottom Navigation with 4 Tabs, each Tab has its own background color.
@@ -50,9 +48,9 @@ This is an example for a Bottom Navigation with 4 Tabs, each Tab has its own bac
 In this example, I used [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) as Icon Components. You can use whatever Component you want.
 
 ```jsx
-import React, { Component } from 'react'
-import BottomNavigation, { Tab } from 'react-native-material-bottom-navigation'
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import React, { Component } from 'react';
+import BottomNavigation, { Tab } from 'react-native-material-bottom-navigation';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 class MyComponent extends Component {
   render() {
@@ -60,8 +58,15 @@ class MyComponent extends Component {
       <BottomNavigation
         labelColor="white"
         rippleColor="white"
-        style={{ height: 56, elevation: 8, position: 'absolute', left: 0, bottom: 0, right: 0 }}
-        onTabChange={(newTabIndex) => alert(`New Tab at position ${newTabIndex}`)}
+        style={{
+          height: 56,
+          elevation: 8,
+          position: 'absolute',
+          left: 0,
+          bottom: 0,
+          right: 0,
+        }}
+        onTabChange={newTabIndex => alert(`New Tab at position ${newTabIndex}`)}
       >
         <Tab
           barBackgroundColor="#37474F"
@@ -84,7 +89,7 @@ class MyComponent extends Component {
           icon={<Icon size={24} color="white" name="newspaper" />}
         />
       </BottomNavigation>
-    )
+    );
   }
 }
 ```
@@ -93,42 +98,41 @@ class MyComponent extends Component {
 
 Don't skip this part. You will be happy to know about all the good stuff you can configure here.
 
-**Note:** If you are searching for more customization options, like label styles for fonts/positioning/..., they are *intentionally* not supported. More and more customizations would be actively against the Material Design Guidelines, and I want to encourage you to follow the Guidelines.
+**Note:** If you are searching for more customization options, like label styles for fonts/positioning/..., they are _intentionally_ not supported. More and more customizations would be actively against the Material Design Guidelines, and I want to encourage you to follow the Guidelines.
 
 ### BottomNavigation
 
-| Prop | Description  | Type | Default |
-|------|--------------|------|--------|
-| **`activeTab`** | Index of the preselected Tab, starting from 0. | `number` | `0` |
-| **`labelColor`** | Text Color of the Tab's Label. Can be overwritten by the Tab itself. | `string` | `rgba(0, 0, 0, 0.54)` |
-| **`activeLabelColor`** | Text Color of the active Tab's Label. Can be overwritten by the Tab itself. | `string` | `labelColor` |
-| **`rippleColor`** | Color of the small Ripple Effect when the Tab will be pressed. Has opacity of `0.12`. | `string` | `black` |
-| **`backgroundColor`** | Background color of the Bottom Navigation. Can be overwritten by the Tab itself, to achieve different background colors for each active Tab. | `string` | `white` |
-| **`onTabChange`** | Function to be called when a Tab was pressed and changes into active state. Will be called with parameters `(newTabIndex, oldTabIndex) => {}`. | `function` | `noop` |
-| **`style`** | **Required.** Style will be directly applied to the component. Use this to set the height of the BottomNavigation (should be 56), to position it, to add shadow and border. The only pre-set rule is `overflow: hidden`. | `object` | **Required.** |
-| **`innerStyle`** | All tabs are wrapped in another container. Use this to add styles to this container. The main reason why you would want to use this is to put the Navigation behind the Android System Navigation Bar. See below for an example on how to achieve this. | `object` | – |
-| **`shifting`** | Turn manually on/off shifting mode. | `boolean` | `true` if > 3 Tabs, otherwise `false` |
+| Prop                   | Description                                                                                                                                                                                                                                             | Type       | Default                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------- |
+| **`activeTab`**        | Index of the preselected Tab, starting from 0.                                                                                                                                                                                                          | `number`   | `0`                                   |
+| **`labelColor`**       | Text Color of the Tab's Label. Can be overwritten by the Tab itself.                                                                                                                                                                                    | `string`   | `rgba(0, 0, 0, 0.54)`                 |
+| **`activeLabelColor`** | Text Color of the active Tab's Label. Can be overwritten by the Tab itself.                                                                                                                                                                             | `string`   | `labelColor`                          |
+| **`rippleColor`**      | Color of the small Ripple Effect when the Tab will be pressed. Has opacity of `0.12`.                                                                                                                                                                   | `string`   | `black`                               |
+| **`backgroundColor`**  | Background color of the Bottom Navigation. Can be overwritten by the Tab itself, to achieve different background colors for each active Tab.                                                                                                            | `string`   | `white`                               |
+| **`onTabChange`**      | Function to be called when a Tab was pressed and changes into active state. Will be called with parameters `(newTabIndex, oldTabIndex) => {}`.                                                                                                          | `function` | `noop`                                |
+| **`style`**            | **Required.** Style will be directly applied to the component. Use this to set the height of the BottomNavigation (should be 56), to position it, to add shadow and border. The only pre-set rule is `overflow: hidden`.                                | `object`   | **Required.**                         |
+| **`innerStyle`**       | All tabs are wrapped in another container. Use this to add styles to this container. The main reason why you would want to use this is to put the Navigation behind the Android System Navigation Bar. See below for an example on how to achieve this. | `object`   | –                                     |
+| **`shifting`**         | Turn manually on/off shifting mode.                                                                                                                                                                                                                     | `boolean`  | `true` if > 3 Tabs, otherwise `false` |
+| **`doRipple`**         | Activate ripple or not                                                                                                                                                                                                                                  | `boolean`  | `false`                               |
 
 **Hints:**
 
-- Elevation should be `8`
-- Height should be `56`
-- Width should be 100%
-- Follow all specs defined in the [Official Guidelines](https://material.io/guidelines/components/bottom-navigation.html#bottom-navigation-specs)
-
+* Elevation should be `8`
+* Height should be `56`
+* Width should be 100%
+* Follow all specs defined in the [Official Guidelines](https://material.io/guidelines/components/bottom-navigation.html#bottom-navigation-specs)
 
 ### Tab
 
-| Prop | Description  | Type | Default |
-|------|--------------|------|--------|
-| **`icon`** | **Required.** Component to render as icon. Should have height and width of `24`. | `ReactElement<*>` | **Required.** |
-| **`activeIcon`** | Component to render as icon when the Tab is active. Should have height and width of `24`. Use this to change the color of the icon. | `ReactElement<*>` | `icon` |
-| **`label`** | **Required.** Text of the Label. | `string` | **Required.** |
-| **`labelColor`** | Text Color of the Label. | `string` | `labelColor` of BottomNavigation |
-| **`activeLabelColor`** | Text Color of the Label when the Tab is active. | `string` | `activeLabelColor` of BottomNavigation |
-| **`barBackgroundColor`** | Background color for the whole component, if the tab is active. | `string` | `backgroundColor` of BottomNavigation |
-| **`onPress`** | Function to be called when the Tab was pressed. **When you use this, the pressed tab won't be active automatically. You need to set it to active by updating `BottomNavigation.activeTab`.** This function will be called with the parameter `(newTabIndex) => {}` | `function` | – |
-
+| Prop                     | Description                                                                                                                                                                                                                                                        | Type              | Default                                |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | -------------------------------------- |
+| **`icon`**               | **Required.** Component to render as icon. Should have height and width of `24`.                                                                                                                                                                                   | `ReactElement<*>` | **Required.**                          |
+| **`activeIcon`**         | Component to render as icon when the Tab is active. Should have height and width of `24`. Use this to change the color of the icon.                                                                                                                                | `ReactElement<*>` | `icon`                                 |
+| **`label`**              | **Required.** Text of the Label.                                                                                                                                                                                                                                   | `string`          | **Required.**                          |
+| **`labelColor`**         | Text Color of the Label.                                                                                                                                                                                                                                           | `string`          | `labelColor` of BottomNavigation       |
+| **`activeLabelColor`**   | Text Color of the Label when the Tab is active.                                                                                                                                                                                                                    | `string`          | `activeLabelColor` of BottomNavigation |
+| **`barBackgroundColor`** | Background color for the whole component, if the tab is active.                                                                                                                                                                                                    | `string`          | `backgroundColor` of BottomNavigation  |
+| **`onPress`**            | Function to be called when the Tab was pressed. **When you use this, the pressed tab won't be active automatically. You need to set it to active by updating `BottomNavigation.activeTab`.** This function will be called with the parameter `(newTabIndex) => {}` | `function`        | –                                      |
 
 ## Behind the Navigation Bar
 
@@ -157,7 +161,6 @@ However, if you know what you're doing, you only need to adjust a few things:
 
 **Step 3.** You're done!
 
-
 ## Usage for [react-navigation](https://reactnavigation.org)
 
 This package includes a Component to plug into react-navigation. It is as configurable as the standalone version. To achieve this, it uses a separate configuration inside `tabBarOptions`. You can only set those configurations for the Bottom Navigation inside the `TabNavigatorConfig` of `TabNavigator()` – **not inside `static navigationOptions` or inside the `RouteConfigs`**.
@@ -165,7 +168,6 @@ This package includes a Component to plug into react-navigation. It is as config
 The following example will explain everything you need to get started.
 
 ```jsx
-
 import React from 'react'
 import { NavigationComponent } from 'react-native-material-bottom-navigation'
 import { TabNavigator } from 'react-navigation'
@@ -232,52 +234,48 @@ AppRegistry.registerComponent('MyApp', () => MyApp)
 
 ### [TabNavigatorConfig](https://reactnavigation.org/docs/navigators/tab#TabNavigatorConfig)
 
-- `tabBarComponent`: Use `NavigationComponent` provided by `react-native-material-bottom-navigation`.
-- `tabBarPosition`: Use `bottom`.
-- `tabBarOptions`: react-navigation's configuration of the tab bar.
-
+* `tabBarComponent`: Use `NavigationComponent` provided by `react-native-material-bottom-navigation`.
+* `tabBarPosition`: Use `bottom`.
+* `tabBarOptions`: react-navigation's configuration of the tab bar.
 
 ### tabBarOptions
 
 The only options, which will affect the Bottom Navigation, are the following:
 
-- `style`: Corresponds to the `style` prop of [`BottomNavigation`](#BottomNavigation). If no height is specified, it will use `height: 56`. This way you don't need any styling in most cases.
-- `bottomNavigationOptions`: The options for the Bottom Navigation, see below.
-
+* `style`: Corresponds to the `style` prop of [`BottomNavigation`](#BottomNavigation). If no height is specified, it will use `height: 56`. This way you don't need any styling in most cases.
+* `bottomNavigationOptions`: The options for the Bottom Navigation, see below.
 
 ### bottomNavigationOptions
 
 All options of [`BottomNavigation`](#BottomNavigation) are available. They behave like the options in the standalone version, including fallback- and default-behaviour.
 
-- **`labelColor`**
-- **`activeLabelColor`**
-- **`rippleColor`**
-- **`backgroundColor`**
-- **`style`**: If specified, `tabBarOptions.style` won't be used.
-- **`innerStyle`**
-- **`shifting`**
-- **`tabs`**: Configuration for the tabs, see below.
+* **`labelColor`**
+* **`activeLabelColor`**
+* **`rippleColor`**
+* **`backgroundColor`**
+* **`style`**: If specified, `tabBarOptions.style` won't be used.
+* **`innerStyle`**
+* **`shifting`**
+* **`tabs`**: Configuration for the tabs, see below.
 
-*Note: `activeTab` and `onTabChange` don't have any effect, since this is handled by react-navigation.*
-
+_Note: `activeTab` and `onTabChange` don't have any effect, since this is handled by react-navigation._
 
 ### tabs
 
-Each tab can be configured by its key from `RouteConfigs`. *If you take a look at the example, you will see that `MoviesAndTV`, `Music` and `Newsstand` correspond to each other.*
+Each tab can be configured by its key from `RouteConfigs`. _If you take a look at the example, you will see that `MoviesAndTV`, `Music` and `Newsstand` correspond to each other._
 
-- **`tab`** is an object with `{ [routeKey]: tabOptions }`
+* **`tab`** is an object with `{ [routeKey]: tabOptions }`
 
 ### tabOptions
 
 All options of [`Tab`](#Tab) are available. They behave like the options in the standalone version, including fallback- and default-behaviour.
 
-- **`icon`**: If not specified, the icon inside `static navigationOptions.tabBar` of the scene will be used.
-- **`activeIcon`**
-- **`label`**: If not specified, the label inside `static navigationOptions.tabBar` of the scene will be used.
-- **`labelColor`**
-- **`activeLabelColor`**
-- **`barBackgroundColor`**
-
+* **`icon`**: If not specified, the icon inside `static navigationOptions.tabBar` of the scene will be used.
+* **`activeIcon`**
+* **`label`**: If not specified, the label inside `static navigationOptions.tabBar` of the scene will be used.
+* **`labelColor`**
+* **`activeLabelColor`**
+* **`barBackgroundColor`**
 
 ### Why don't you use all the options provided by react-navigation?
 
