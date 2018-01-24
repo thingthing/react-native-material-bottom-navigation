@@ -35,10 +35,10 @@ The Bottom navigation looks lovely. That's probably the reason why you're here. 
 
 ```sh
 # via npm
-$ npm install react-native-material-bottom-navigation --save
+$ npm install react-native-material-bottom-navigation-performance --save
 
 # via yarn
-$ yarn add react-native-material-bottom-navigation
+$ yarn add react-native-material-bottom-navigation-performance
 ```
 
 ## But how?
